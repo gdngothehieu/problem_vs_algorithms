@@ -1,11 +1,54 @@
-In this problem, we use Trie or a Prefix Tree to implement an autocomplete function. Thus, the time and space complexity is generally similar to Tree.
+## TrieNode
 
-Time complexity
+A node class to be used to form a linked list with multi children stored in a dictionary in each node. Provide methods to insert nodes as children and look up suffixes (or children words).
 
-- For a trie, time complexity of Insert operation takes O(n) with n is each char in the word (as we iterate over each char, creating a new TrieNode, and assigning as node for next iteration)
-- Same with Find operation O(n) (iterate over each char in word, get char in node.children, assign children[char] as node for next iteration)
-- Suffixes operation takes O(n \* m) with n is the number of iteration and m is the suffixes operation with the children of each child
+1. Constructor
 
-Space complexity
+**Time Complexity:** O(1)
 
-- space are used for the recusive stack, thus it is O(n \* m) for n is number of child and m is the children of each child.
+**Space Complexity:** O(1)
+
+2. insert (char) method
+
+**Time Complexity:** O(1)
+
+Add an element in a dicitonary, O(1)
+
+**Space Complexity:** O(1)
+
+3. suffixes method
+
+**Time Complexity:** O(n x m), where n is number of words and m is the average length of words.
+
+Traverse down the Trie to get all the characters of the words.
+
+**Space Complexity:** O(n x m), where n is number of words and m is the average length of words.
+
+Store all the words in a list.
+
+
+## Trie
+
+A tree class with linked list to implement insert and find functions.
+
+1. Constructor
+
+**Time Complexity:** O(1)
+
+**Space Complexity:** O(1)
+
+2. insert (word) method
+
+**Time Complexity:** O(m), where m is the number of characters.
+
+Traverse each character in the word and store in the trie. For each character, the lookup time for checking if it's already in the trie is O(1) because Trie uses dictionary to store character and TrieNode.
+
+**Space Complexity:** O(1)
+
+3. find method
+
+**Time Complexity:** O(m), where m is the number of characters.
+
+Traverse each character in the word/prefix to check if it's in the trie. For each character, the lookup time for checking if it's already in the trie is O(1) because Trie uses dictionary to store character and TrieNode.
+
+**Space Complexity:** O(1)
